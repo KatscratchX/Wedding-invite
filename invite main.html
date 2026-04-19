@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gowtham & Apurba | June 2026</title>
+  <meta name="description" content="A story-led wedding website for Gowtham and Apurba." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4ead9;
+      --paper-2: #efe1cc;
+      --paper-3: #e5d2b8;
+      --ink: #701739;
+      --ink-deep: #4d1027;
+      --gold: #b78a1d;
+      --gold-soft: #d5b15a;
+      --blue: #254a79;
+      --green: #1b6b58;
+      --yellow: #c59a18;
+      --chilli: #9d2b26;
+      --plum: #6d1738;
+      --soft: rgba(112, 23, 57, 0.14);
+      --soft-2: rgba(112, 23, 57, 0.08);
+      --text: #5a2a3d;
+      --muted: rgba(90, 42, 61, 0.7);
+      --white: #fffaf2;
+      --shadow: 0 18px 60px rgba(89, 43, 63, 0.12);
+      --radius-xl: 36px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(183,138,29,0.08), transparent 28%),
+        radial-gradient(circle at 80% 12%, rgba(37,74,121,0.06), transparent 24%),
+        linear-gradient(180deg, #f7eedf 0%, #f1e3cf 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      z-index: 50;
+      background-image:
+        linear-gradient(rgba(112, 23, 57, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(112, 23, 57, 0.03) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mix-blend-mode: multiply;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      z-index: 120;
+      background: rgba(112, 23, 57, 0.08);
+    }
+    .progress > span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--ink));
+      transform-origin: 0 50%;
+    }
+
+    .quick-nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 110;
+      width: min(92vw, 760px);
+      padding: 6px;
+      display: flex;
+      justify-content: center;
+      gap: 2px;
+      border: 1px solid rgba(112, 23, 57, 0.12);
+      border-radius: 999px;
+      background: rgba(250, 242, 229, 0.72);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 40px rgba(80, 31, 50, 0.08);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .quick-nav::-webkit-scrollbar { display: none; }
+    .quick-nav a {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 11px;
+      border-radius: 999px;
+      color: rgba(90, 42, 61, 0.72);
+      transition: 180ms ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .quick-nav a.active,
+    .quick-nav a:hover {
+      background: rgba(139, 99, 60, 0.18);
+      color: rgba(70, 28, 18, 1);
+      font-weight: 800;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      position: relative;
+      overflow: clip;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(90, 42, 61, 0.68);
+    }
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.35;
+    }
+
+    .display {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .lede {
+      font-size: clamp(1rem, 1.1vw, 1.12rem);
+      line-height: 1.85;
+      max-width: 60ch;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .frame {
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(112, 23, 57, 0.12);
+      border-radius: 28px;
+      pointer-events: none;
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: 110px 0 80px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      align-items: center;
+      gap: clamp(26px, 5vw, 80px);
+    }
+    .hero-copy {
+      max-width: 640px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .hero-copy .display {
+      font-size: clamp(4.3rem, 12vw, 8.8rem);
+      margin-top: 18px;
+      margin-bottom: 22px;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      line-height: 1.9;
+      color: rgba(90, 42, 61, 0.82);
+      max-width: 56ch;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      justify-content: center;
+    }
+    .hero-link {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--ink);
+      opacity: 0.72;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(112, 23, 57, 0.3);
+      padding-bottom: 2px;
+      transition: opacity 180ms ease, border-color 180ms ease;
+    }
+    .hero-link:hover {
+      opacity: 1;
+      border-color: rgba(112, 23, 57, 0.7);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+    }
+    .hero-card {
+      position: relative;
+      width: min(100%, 360px);
+      aspect-ratio: 0.78;
+      border-radius: 42px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(183,138,29,0.10), transparent 30%),
+        radial-gradient(circle at 78% 22%, rgba(37,74,121,0.10), transparent 28%),
+        linear-gradient(180deg, rgba(255,250,242,0.96), rgba(247,237,222,0.96));
+      border: 1px solid rgba(112, 23, 57, 0.14);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(112, 23, 57, 0.12);
+      border-radius: 32px;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 34%;
+      background: linear-gradient(180deg, rgba(112, 23, 57, 0) 0%, rgba(112, 23, 57, 0.08) 100%);
+    }
+    .hero-illustration {
+      position: absolute;
+      inset: auto 6px 6px 6px;
+      max-width: 100%;
+      margin: auto;
+      filter: drop-shadow(0 18px 48px rgba(84, 32, 51, 0.18));
+      z-index: 3;
+    }
+    .story-badge {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.9);
+      border: 1px solid rgba(112, 23, 57, 0.12);
+      box-shadow: 0 10px 30px rgba(90, 42, 61, 0.08);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      z-index: 5;
+      white-space: nowrap;
+    }
+    .story-badge small {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+    .badge-delhi { top: 18px; left: 16px; }
+    .badge-guntur { top: 22px; right: 16px; }
+    .badge-aiims { bottom: 130px; left: 0px; }
+    .badge-luffy { bottom: 56px; right: -4px; }
+
+    .sky-wash {
+      position: absolute;
+      inset: 8% 7% auto;
+      height: 42%;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 35% 50%, rgba(213,177,90,0.28), transparent 26%),
+        radial-gradient(circle at 70% 45%, rgba(37,74,121,0.18), transparent 26%),
+        radial-gradient(circle at 50% 40%, rgba(112,23,57,0.09), transparent 36%);
+      filter: blur(6px);
+      z-index: 1;
+    }
+    .line-motif {
+      position: absolute;
+      z-index: 2;
+      opacity: 0.28;
+      color: var(--ink);
+    }
+    .line-motif svg {
+      width: 100%;
+      height: 100%;
+    }
+    .motif-india {
+      width: 180px;
+      height: 110px;
+      left: 20px;
+      bottom: 190px;
+    }
+    .motif-chilli {
+      width: 120px;
+      height: 120px;
+      right: 18px;
+      bottom: 170px;
+      color: var(--chilli);
+      opacity: 0.34;
+    }
+    .motif-metro {
+      width: 150px;
+      height: 34px;
+      left: 42px;
+      top: 110px;
+      color: var(--blue);
+    }
+
+    .scroll-note {
+      margin-top: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(90, 42, 61, 0.64);
+      font-weight: 700;
+    }
+    .scroll-note span:last-child {
+      width: 54px;
+      height: 1px;
+      background: currentColor;
+      position: relative;
+      overflow: hidden;
+    }
+    .scroll-note span:last-child::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, var(--ink), transparent);
+      animation: pulseLine 1.8s linear infinite;
+    }
+    @keyframes pulseLine {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(100%); }
+    }
+
+    .chapter {
+      padding: 110px 0;
+    }
+    .chapter-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .chapter-head .display {
+      font-size: clamp(3rem, 7vw, 5rem);
+      margin-top: 30px;
+      margin-bottom: 18px;
+    }
+    .chapter-head .lede {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+    .story-card {
+      position: relative;
+      padding: 46px 30px;
+      min-height: 360px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.85);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      isolation: isolate;
+    }
+    .story-card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(112, 23, 57, 0.10);
+      border-radius: 22px;
+      z-index: -1;
+    }
+    .story-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--ink);
+      margin: 7px 0 10px;
+    }
+    .story-card p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: rgba(90, 42, 61, 0.82);
+      max-width: 42ch;
+    }
+    .card-topline {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      color: rgba(90, 42, 61, 0.58);
+      margin-top: 8px;
+    }
+
+
+    .delhi-skyline-img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: bottom center;
+      opacity: 0.88;
+      mix-blend-mode: screen;
+      border-radius: 0 0 26px 26px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .doodle {
+      position: absolute;
+      opacity: 0.16;
+      color: var(--ink);
+      z-index: -1;
+    }
+    .doodle svg {
+      width: 100%;
+      height: 100%;
+    }
+    .doodle.india { width: 220px; height: 150px; top: 34px; left: 28px; color: var(--blue); }
+    .doodle.delhi-sky { width: 180px; height: 70px; top: 42px; right: 20px; color: var(--gold); }
+    .doodle.chillies { width: 220px; height: 180px; top: 24px; right: 10px; color: var(--chilli); }
+    .doodle.sun { width: 130px; height: 130px; top: 24px; left: 28px; color: var(--gold); }
+    .doodle.ai { width: 220px; height: 150px; top: 24px; left: 28px; color: var(--green); }
+    .doodle.path { width: 200px; height: 120px; top: 42px; right: 24px; color: var(--ink); }
+
+    .meeting-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .meeting-panel, .meeting-notes {
+      position: relative;
+      padding: 34px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.85);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .meeting-panel::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(112, 23, 57, 0.13);
+      border-radius: 22px;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .meeting-panel h3, .meeting-notes h3 {
+      margin: 7px 0 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: clamp(2.3rem, 4vw, 3.4rem);
+      color: var(--ink);
+    }
+    .meeting-panel p, .meeting-notes p {
+      margin: 0;
+      line-height: 1.9;
+      color: rgba(90, 42, 61, 0.82);
+    }
+    .meeting-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .meeting-tags span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid rgba(112, 23, 57, 0.12);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .path-line {
+      position: absolute;
+      inset: auto 26px 28px 26px;
+      height: 120px;
+      opacity: 0.14;
+    }
+
+    .luffy {
+      padding-top: 20px;
+    }
+    .luffy-band {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 0px;
+      align-items: center;
+      padding: 30px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.85);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .luffy-band::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(112, 23, 57, 0.10);
+      border-radius: 22px;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .luffy-copy h3, .luffy-copy-h3 {
+      margin: 0 0 16px;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--ink);
+      line-height: 0.98;
+    }
+    .luffy-copy p {
+      margin: 0;
+      font-size: 1rem;
+      color: rgba(90, 42, 61, 0.82);
+      line-height: 1.85;
+      max-width: 42ch;
+    }
+    .luffy-quote {
+      margin-top: 22px;
+      display: inline-flex;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(112, 23, 57, 0.06);
+      border: 1px solid rgba(112, 23, 57, 0.14);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .luffy-cat-img {
+      width: 100%;
+      height: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+      margin: auto;
+    }
+    .luffy-img-wrap {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 200px;
+    }
+    .luffy-orbits {
+      position: relative;
+      min-height: 320px;
+    }
+    .orbit {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 250, 242, 0.16);
+    }
+    .orbit.o1 { inset: 40px; }
+    .orbit.o2 { inset: 86px; }
+    .orbit.o3 { inset: 132px; }
+    .paw {
+      position: absolute;
+      width: 86px;
+      height: 86px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.22;
+    }
+    .paw svg { width: 100%; height: 100%; fill: var(--gold-soft); }
+    .orbit-pill {
+      position: absolute;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.08);
+      border: 1px solid rgba(255, 250, 242, 0.16);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 250, 242, 0.88);
+      backdrop-filter: blur(10px);
+    }
+    .orbit-pill.p1 { top: 12%; left: 12%; }
+    .orbit-pill.p2 { top: 18%; right: 9%; }
+    .orbit-pill.p3 { bottom: 24%; left: 8%; }
+    .orbit-pill.p4 { bottom: 12%; right: 10%; }
+
+    .functions-intro {
+      padding-top: 30px;
+      padding-bottom: 40px;
+    }
+    .functions-intro .chapter-head {
+      margin-bottom: 24px;
+    }
+
+    .event-section {
+      min-height: 96svh;
+      display: grid;
+      align-items: center;
+      padding: 84px 0;
+    }
+    .event-compact {
+      min-height: unset;
+      padding: 56px 0;
+    }
+    .event-grand {
+      min-height: 110svh;
+      padding: 44px 0;
+    }
+    .event-grand .event-number {
+      font-size: clamp(7rem, 16vw, 13rem);
+    }
+    .event-grand .event-title {
+      font-size: clamp(4rem, 8.5vw, 6.5rem);
+    }
+
+    .event-layout-single {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 580px;
+    }
+    .event-layout-single .event-copy {
+      width: 100%;
+    }
+
+    .event-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: clamp(24px, 4vw, 70px);
+    }
+    .event-layout.reverse .event-copy {
+      order: 2;
+    }
+    .event-layout.reverse .event-scene {
+      order: 1;
+    }
+    .event-copy {
+      position: relative;
+      z-index: 4;
+    }
+    .event-number {
+      font-size: clamp(5rem, 12vw, 9rem);
+      line-height: 0.8;
+      font-family: "Cormorant Garamond", serif;
+      color: rgba(112, 23, 57, 0.12);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .event-kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(90, 42, 61, 0.56);
+      margin-bottom: 16px;
+    }
+    .event-title {
+      margin: 0 0 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 6.5vw, 5rem);
+      line-height: 0.94;
+      color: var(--ink);
+    }
+    .event-meta {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+      max-width: 46ch;
+    }
+    .meta-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: rgba(90, 42, 61, 0.86);
+    }
+    .meta-row strong {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(90, 42, 61, 0.56);
+    }
+    .meta-tag {
+      display: inline-flex;
+      margin-top: 18px;
+      min-height: 42px;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .event-scene {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+    .scene-card {
+      position: relative;
+      width: min(100%, 500px);
+      min-height: 520px;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid rgba(112, 23, 57, 0.12);
+      background: linear-gradient(180deg, rgba(255,250,242,0.95), rgba(244,234,217,0.98));
+      box-shadow: var(--shadow);
+    }
+    .scene-card::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: 24px;
+      border: 1px solid rgba(112, 23, 57, 0.10);
+    }
+    .scene-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 24% 18%, rgba(183,138,29,0.18), transparent 26%),
+        radial-gradient(circle at 78% 26%, rgba(37,74,121,0.12), transparent 24%),
+        radial-gradient(circle at 50% 88%, rgba(112,23,57,0.08), transparent 34%);
+    }
+    .scene-center {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      z-index: 3;
+    }
+    .scene-center > div {
+      text-align: center;
+      max-width: 320px;
+    }
+    .scene-center .small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: rgba(90, 42, 61, 0.56);
+      margin-bottom: 12px;
+    }
+    .scene-center .big {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 0.96;
+      color: var(--ink);
+    }
+    .scene-center .small-note {
+      margin-top: 14px;
+      font-size: 0.96rem;
+      line-height: 1.8;
+      color: rgba(90, 42, 61, 0.76);
+    }
+
+    .scene-layer {
+      position: absolute;
+      z-index: 2;
+      opacity: 0.36;
+    }
+    .scene-layer svg {
+      width: 100%;
+      height: 100%;
+    }
+    .scene-layer.top-left { top: 24px; left: 26px; }
+    .scene-layer.top-right { top: 26px; right: 26px; }
+    .scene-layer.bottom-left { bottom: 26px; left: 24px; }
+    .scene-layer.bottom-right { bottom: 26px; right: 24px; }
+    .scene-stars {
+      position: absolute;
+      inset: 18px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.42;
+    }
+
+    .theme-blue .scene-card { background: linear-gradient(180deg, rgba(252,253,255,0.96), rgba(236,242,249,0.98)); }
+    .theme-blue .event-title, .theme-blue .scene-center .big { color: var(--blue); }
+    .theme-blue .meta-tag { background: var(--blue); }
+
+    .theme-green .scene-card { background: linear-gradient(180deg, rgba(252,255,252,0.96), rgba(235,245,239,0.98)); }
+    .theme-green .event-title, .theme-green .scene-center .big { color: var(--green); }
+    .theme-green .meta-tag { background: var(--green); }
+
+    .theme-yellow .scene-card { background: linear-gradient(180deg, rgba(255,252,244,0.96), rgba(247,239,210,0.98)); }
+    .theme-yellow .event-title, .theme-yellow .scene-center .big { color: var(--yellow); }
+    .theme-yellow .meta-tag { background: var(--yellow); color: #432f05; }
+
+    .theme-maroon .scene-card { background: linear-gradient(135deg, #701739 0%, #4d1027 100%); }
+    .theme-maroon .event-title, .theme-maroon .scene-center .big { color: var(--ink); }
+    .theme-maroon .meta-tag { background: var(--ink); }
+
+    .theme-chilli .scene-card { background: linear-gradient(180deg, #9d2b26 0%, #6e1c18 100%); }
+    .theme-chilli .event-title, .theme-chilli .scene-center .big { color: var(--chilli); }
+    .theme-chilli .meta-tag { background: var(--chilli); }
+
+    /* Text overrides for Reception (dark card) */
+    .theme-chilli.event-grand .scene-card::before { border-color: rgba(255, 250, 242, 0.12); }
+    .theme-chilli.event-grand .event-number { color: rgba(255, 250, 242, 0.10); }
+    .theme-chilli.event-grand .event-kicker { color: rgba(255, 250, 242, 0.60); }
+    .theme-chilli.event-grand .event-title { color: var(--white); }
+    .theme-chilli.event-grand .lede { color: rgba(255, 250, 242, 0.76); }
+    .theme-chilli.event-grand .meta-row { color: rgba(255, 250, 242, 0.95); }
+    .theme-chilli.event-grand .meta-row strong { color: rgba(255, 250, 242, 0.72); }
+
+    /* Text overrides for Wedding (dark maroon card) */
+    .theme-maroon.event-grand .scene-card::before { border-color: rgba(255, 250, 242, 0.12); }
+    .theme-maroon.event-grand .event-number { color: rgba(255, 250, 242, 0.08); }
+    .theme-maroon.event-grand .event-kicker { color: rgba(255, 250, 242, 0.60); }
+    .theme-maroon.event-grand .event-title { color: var(--white); }
+    .theme-maroon.event-grand .lede { color: rgba(255, 250, 242, 0.76); }
+    .theme-maroon.event-grand .meta-row { color: rgba(255, 250, 242, 0.95); }
+    .theme-maroon.event-grand .meta-row strong { color: rgba(255, 250, 242, 0.72); }
+
+    /* ── Glass look: Nani Mukh (blue), Mehendi (green), Haldi (yellow) ── */
+    .theme-blue.event-compact,
+    .theme-green.event-compact,
+    .theme-yellow.event-compact {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Coloured atmospheric blobs behind the glass */
+    .theme-blue.event-compact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 15% 50%, rgba(37,74,121,0.28) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 25%, rgba(37,74,121,0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at 55% 90%, rgba(183,138,29,0.12) 0%, transparent 40%);
+    }
+    .theme-green.event-compact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 12% 45%, rgba(27,107,88,0.28) 0%, transparent 55%),
+        radial-gradient(ellipse at 82% 30%, rgba(27,107,88,0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 85%, rgba(183,138,29,0.12) 0%, transparent 40%);
+    }
+    .theme-yellow.event-compact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 10% 50%, rgba(197,154,24,0.30) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 25%, rgba(183,138,29,0.22) 0%, transparent 45%),
+        radial-gradient(ellipse at 55% 88%, rgba(112,23,57,0.08) 0%, transparent 40%);
+    }
+
+    /* Glass card on the event-copy */
+    .theme-blue.event-compact .event-copy,
+    .theme-green.event-compact .event-copy,
+    .theme-yellow.event-compact .event-copy {
+      padding: 44px 52px;
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(22px) saturate(180%);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      box-shadow:
+        0 8px 40px rgba(80,30,50,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.70);
+    }
+    .theme-blue.event-compact .event-copy {
+      background: rgba(220,232,248,0.30);
+      border: 1px solid rgba(37,74,121,0.22);
+    }
+    .theme-green.event-compact .event-copy {
+      background: rgba(210,238,228,0.30);
+      border: 1px solid rgba(27,107,88,0.22);
+    }
+    .theme-yellow.event-compact .event-copy {
+      background: rgba(252,243,204,0.32);
+      border: 1px solid rgba(197,154,24,0.28);
+    }
+
+    /* Widen the single-layout container slightly to breathe with the padding */
+    .theme-blue.event-compact .event-layout-single,
+    .theme-green.event-compact .event-layout-single,
+    .theme-yellow.event-compact .event-layout-single {
+      max-width: 640px;
+    }
+
+    .map-section {
+      padding: 110px 0 30px;
+    }
+    .map-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .map-card{
+      position: relative;
+      border-radius: 32px;
+      background: rgba(255, 250, 242, 0.88);
+      border: 1px solid rgba(112, 23, 57, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .venue-stack{
+      position: relative;
+      border-radius: 32px;
+      background: rgba(255, 250, 242, 0.88);
+      /*border: 1px solid rgba(112, 23, 57, 0.12);*/
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .map-card {
+      padding: 24px;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .map-card::before{
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: 24px;
+      border: 1px solid rgba(112, 23, 57, 0.10);
+      pointer-events: none;
+    }
+
+    .venue-stack::before{
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: 24px;
+      /*border: 1px solid rgba(112, 23, 57, 0.10);*/
+      pointer-events: none;
+    }
+
+    .route-map {
+      flex: 1;
+      min-height: 0;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .route-map img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 18px;
+    }
+    .route-map svg {
+      width: 100%;
+      height: 100%;
+    }
+    .map-copy {
+      flex-shrink: 0;
+      background: rgba(255, 250, 242, 0.86);
+      border-radius: 20px;
+      padding: 0px 18px;
+      margin-bottom: 20px;
+    }
+    .map-copy h3 {
+      margin: 0 0 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      color: var(--ink);
+    }
+    .map-copy p {
+      margin: 0;
+      line-height: 1.8;
+      color: rgba(90, 42, 61, 0.8);
+    }
+
+    .venue-stack {
+      padding: 26px;
+      display: grid;
+      gap: 16px;
+    }
+    .venue-item {
+      position: relative;
+      padding: 18px 18px 18px 20px;
+      border-radius: 22px;
+      background: var(--paper);
+      border: 1px solid rgba(112, 23, 57, 0.10);
+      display: grid;
+      gap: 8px;
+    }
+    .venue-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+    }
+    .venue-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex: 0 0 12px;
+    }
+    .venue-item p {
+      margin: 0;
+      line-height: 1.75;
+      color: rgba(90, 42, 61, 0.78);
+    }
+    .map-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .map-links a {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(112, 23, 57, 0.07);
+      border: 1px solid rgba(112, 23, 57, 0.10);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .closing {
+      padding: 20px 0 80px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(213,177,90,0.10), transparent 24%),
+        radial-gradient(circle at 80% 18%, rgba(37,74,121,0.08), transparent 24%),
+        linear-gradient(180deg, #f3e7d5 0%, #eedcc4 100%);
+    }
+    .closing-card {
+      position: relative;
+      padding: 120px 100px;
+      border-radius: 36px;
+      background: linear-gradient(180deg, rgba(110,23,56,0.97), rgba(76,16,39,0.98));
+      color: var(--white);
+      overflow: hidden;
+      box-shadow: 0 30px 90px rgba(70, 18, 37, 0.22);
+    }
+    .closing-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 250, 242, 0.12);
+      border-radius: 28px;
+      pointer-events: none;
+    }
+    .closing-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .closing-card h2 {
+      margin: 0 0 14px;
+      padding-top: 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.1;
+    }
+    .closing-card p {
+      margin: 0;
+      color: rgba(255, 250, 242, 0.82);
+      line-height: 1.95;
+      max-width: 52ch;
+    }
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .count-item {
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: rgba(255, 250, 242, 0.08);
+      border: 1px solid rgba(255, 250, 242, 0.12);
+      text-align: center;
+    }
+    .count-item strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 0.9;
+      color: var(--white);
+    }
+    .count-item span {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: rgba(255, 250, 242, 0.56);
+    }
+    .closing-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .closing-actions a {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 250, 242, 0.14);
+      background: rgba(255, 250, 242, 0.08);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .closing-actions a.rsvp-wa-btn {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: rgba(76, 16, 39, 1);
+    }
+    .closing-quote {
+      position: relative;
+      padding: 24px 36px;
+      border-radius: 28px;
+      background: rgba(255, 250, 242, 0.08);
+      border: 1px solid rgba(255, 250, 242, 0.12);
+    }
+    .closing-quote h3 {
+      margin: 0 0 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .closing-quote p {
+      margin: 0;
+      line-height: 1.9;
+    }
+
+    .float-drift {
+      animation: drift 8s ease-in-out infinite;
+    }
+    @keyframes drift {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    [data-depth] {
+      will-change: transform;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(32px) scale(0.985);
+      transition: opacity 800ms cubic-bezier(.2,.7,.2,1), transform 800ms cubic-bezier(.2,.7,.2,1);
+    }
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .delay-1 { transition-delay: 100ms; }
+    .delay-2 { transition-delay: 180ms; }
+    .delay-3 { transition-delay: 260ms; }
+    .delay-4 { transition-delay: 340ms; }
+
+    .mobile-only { display: none; }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .meeting-grid,
+      .luffy-band,
+      .map-layout,
+      .closing-grid,
+      .event-layout,
+      .event-layout.reverse,
+      .split-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        min-height: 520px;
+      }
+      .event-layout.reverse .event-copy,
+      .event-layout.reverse .event-scene {
+        order: initial;
+      }
+      .quick-nav {
+        width: min(94vw, 92vw);
+        justify-content: flex-start;
+      }
+      .badge-aiims {
+        left: 12px;
+      }
+      .badge-luffy {
+        right: 12px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 24px), var(--max));
+      }
+      .quick-nav {
+        top: 10px;
+        left: 12px;
+        right: 12px;
+        width: auto;
+        transform: none;
+        gap: 1px;
+        padding: 5px;
+        justify-content: flex-start;
+      }
+      .quick-nav a {
+        font-size: 10.5px;
+        padding: 7px 9px;
+        letter-spacing: 0.08em;
+      }
+      .hero {
+        padding-top: 92px;
+      }
+      .hero-copy .display {
+        font-size: clamp(3.6rem, 18vw, 5.4rem);
+      }
+      .hero-visual {
+        min-height: 450px;
+      }
+      .hero-card {
+        border-radius: 30px;
+      }
+      .story-badge {
+        font-size: 11px;
+        padding: 8px 12px;
+      }
+      .badge-delhi {
+        top: 12px;
+        left: 12px;
+      }
+      .badge-guntur {
+        top: 12px;
+        right: 12px;
+      }
+      .badge-aiims {
+        bottom: 118px;
+      }
+      .badge-luffy {
+        bottom: 40px;
+      }
+      .chapter {
+        padding: 20px 0;
+      }
+      .story-card,
+      .meeting-panel,
+      .meeting-notes,
+      .map-card,
+      .venue-stack,
+      .closing-card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+      .luffy-band {
+        padding: 24px;
+        border-radius: 28px;
+      }
+      .map-card {
+        min-height: 440px;
+      }
+      .route-map {
+        min-height: 260px;
+      }
+      .event-section {
+        min-height: auto;
+        padding: 66px 0;
+      }
+      .scene-card {
+        min-height: 420px;
+        border-radius: 26px;
+      }
+      .meta-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .mobile-only { display: inline-flex; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .scroll-note span:last-child::after,
+      .float-drift {
+        animation: none !important;
+      }
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      [data-depth] {
+        transform: none !important;
+      }
+    }
+    /* ── Grand event card (Wedding & Reception) ── */
+    .event-scene-grand {
+      min-height: unset;
+      width: 100%;
+    }
+    .scene-card-grand {
+      width: 100%;
+      max-width: 100%;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+    }
+    .scene-inner-content {
+      position: relative;
+      z-index: 4;
+      padding: clamp(48px, 6vw, 88px) clamp(48px, 8vw, 110px);
+      max-width: 720px;
+    }
+    .scene-inner-content .event-number {
+      font-size: clamp(7rem, 16vw, 13rem);
+    }
+    .scene-inner-content .event-title {
+      font-size: clamp(4rem, 8.5vw, 6.5rem);
+    }
+    .scene-card-grand.content-right .scene-inner-content {
+      margin-left: auto;
+    }
+    @media (max-width: 720px) {
+      .scene-card-grand {
+        min-height: 480px;
+      }
+      .scene-inner-content {
+        padding: 44px 32px;
+      }
+    }
+
+    /* ── Wedding card illustration ── */
+    .wedding-scene-img {
+      position: absolute;
+      left: -8%;
+      right: auto;
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-54%);
+      max-height: 108%;
+      width: auto;
+      max-width: 56%;
+      object-fit: contain;
+      object-position: left center;
+      pointer-events: none;
+      z-index: 2;
+      filter: drop-shadow(0 32px 64px rgba(60, 10, 30, 0.38)) drop-shadow(0 8px 18px rgba(60, 10, 30, 0.22));
+    }
+    /* Desktop/tablet: content on right */
+    .theme-maroon .scene-inner-content {
+      margin-left: auto;
+    }
+    @media (max-width: 800px) {
+      /* Tablet/mobile: image on top, content below */
+      .theme-maroon .scene-card-grand {
+        flex-direction: column;
+        align-items: stretch;
+        min-height: unset;
+      }
+      .wedding-scene-img {
+        position: relative !important;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        max-height: 320px;
+        max-width: 90%;
+        width: auto;
+        object-fit: contain;
+        object-position: left top;
+        opacity: 1;
+        transform: none;
+        align-self: flex-start;
+        margin-bottom: -16px;
+      }
+      .theme-maroon .scene-inner-content {
+        margin-left: 0;
+        padding-top: 0;
+      }
+    }
+
+    /* ── Gap between Wedding & Reception ── */
+    .theme-maroon.event-grand { min-height: auto; padding: 40px 0 30px; }
+    .theme-chilli.event-grand  { min-height: auto; padding: 30px 0 40px; }
+
+    /* ── Scroll-reveal: directional animations per event card ── */
+
+    /* Nani Mukh – glide in from left */
+    .theme-blue.event-compact .event-copy[data-reveal] {
+      transform: translateX(-60px) scale(0.97);
+      transition: opacity 900ms cubic-bezier(.2,.72,.2,1),
+                  transform 900ms cubic-bezier(.2,.72,.2,1);
+    }
+    .theme-blue.event-compact .event-copy[data-reveal].is-visible {
+      transform: translateX(0) scale(1);
+    }
+
+    /* Mehendi – glide in from right */
+    .theme-green.event-compact .event-copy[data-reveal] {
+      transform: translateX(60px) scale(0.97);
+      transition: opacity 900ms cubic-bezier(.2,.72,.2,1),
+                  transform 900ms cubic-bezier(.2,.72,.2,1);
+    }
+    .theme-green.event-compact .event-copy[data-reveal].is-visible {
+      transform: translateX(0) scale(1);
+    }
+
+    /* Haldi – warm rise with gentle tilt */
+    .theme-yellow.event-compact .event-copy[data-reveal] {
+      transform: translateY(70px) scale(0.92) rotate(-2.5deg);
+      transition: opacity 1000ms cubic-bezier(.16,.9,.28,1),
+                  transform 1000ms cubic-bezier(.16,.9,.28,1);
+    }
+    .theme-yellow.event-compact .event-copy[data-reveal].is-visible {
+      transform: translateY(0) scale(1) rotate(0deg);
+    }
+
+    /* Wedding – grand reveal from below */
+    .theme-maroon.event-grand .event-scene[data-reveal] {
+      transform: translateY(100px) scale(0.92);
+      transition: opacity 1200ms cubic-bezier(.12,.88,.25,1),
+                  transform 1200ms cubic-bezier(.12,.88,.25,1);
+    }
+    .theme-maroon.event-grand .event-scene[data-reveal].is-visible {
+      transform: translateY(0) scale(1);
+    }
+
+    /* Reception – sweep in from right-below */
+    .theme-chilli.event-grand .event-scene[data-reveal] {
+      transform: translateX(80px) translateY(60px) scale(0.93);
+      transition: opacity 1200ms cubic-bezier(.12,.88,.25,1),
+                  transform 1200ms cubic-bezier(.12,.88,.25,1);
+    }
+    .theme-chilli.event-grand .event-scene[data-reveal].is-visible {
+      transform: translateX(0) translateY(0) scale(1);
+    }
+
+    /* ══════════════════════════════════════
+       MOBILE SCROLL ANIMATIONS
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      /* Generic fade + rise for any data-reveal on mobile */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(36px);
+        transition: opacity 700ms cubic-bezier(.2,.72,.2,1),
+                    transform 700ms cubic-bezier(.2,.72,.2,1);
+      }
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Story cards: staggered slide-in from sides */
+      .split-grid .story-card:first-child[data-reveal] {
+        transform: translateX(-40px) translateY(20px);
+      }
+      .split-grid .story-card:last-child[data-reveal] {
+        transform: translateX(40px) translateY(20px);
+      }
+      .split-grid .story-card[data-reveal].is-visible {
+        transform: translateX(0) translateY(0);
+      }
+
+      /* Glass ceremony cards: staggered fade-rise */
+      .glass-card[data-reveal] {
+        transform: translateY(50px) scale(0.96);
+        transition: opacity 800ms cubic-bezier(.16,.9,.28,1),
+                    transform 800ms cubic-bezier(.16,.9,.28,1);
+      }
+      .glass-card[data-reveal].is-visible {
+        transform: translateY(0) scale(1);
+      }
+
+      /* Chapter headings: gentle rise */
+      .chapter-head [data-reveal] {
+        transform: translateY(24px);
+        transition: opacity 600ms ease, transform 600ms ease;
+      }
+
+      /* Closing card pop-up */
+      .closing-card[data-reveal] {
+        transform: translateY(60px) scale(0.97);
+        transition: opacity 900ms cubic-bezier(.12,.88,.25,1),
+                    transform 900ms cubic-bezier(.12,.88,.25,1);
+      }
+      .closing-card[data-reveal].is-visible {
+        transform: translateY(0) scale(1);
+      }
+
+      /* Map & venue cards: slide from bottom */
+      .map-card[data-reveal],
+      .venue-stack[data-reveal] {
+        transform: translateY(48px);
+        transition: opacity 750ms cubic-bezier(.2,.72,.2,1),
+                    transform 750ms cubic-bezier(.2,.72,.2,1);
+      }
+      .map-card[data-reveal].is-visible,
+      .venue-stack[data-reveal].is-visible {
+        transform: translateY(0);
+      }
+    }
+
+    /* ══════════════════════════════════════
+       GLASS CEREMONY CARDS (Nani Mukh · Mehendi · Haldi)
+    ══════════════════════════════════════ */
+    .glass-ceremonies-section{position:relative;overflow:hidden;padding:0 0 8px}
+    .glass-ceremonies-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+    .glass-section-body{padding:32px 24px 0;position:relative;z-index:2}
+    .glass-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:980px;margin:0 auto}
+    .glass-card{background:rgba(255,255,255,0.06);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.14);border-radius:24px;padding:36px 28px 32px;position:relative;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.12);color:var(--white);transition:transform .35s ease,box-shadow .35s ease}
+    .glass-card:hover{transform:translateY(-6px);box-shadow:0 20px 64px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.18)}
+    .glass-card::after{content:'';position:absolute;top:0;left:20px;right:20px;height:1px}
+    .glass-card--nani{background:rgba(44, 91, 139, 0.72);border-color:rgba(100,170,255,.45)}
+    .glass-card--nani::after{background:linear-gradient(90deg,transparent,rgba(120,185,255,.70),transparent)}
+    .glass-card--mehendi{background:rgba(44, 119, 97, 0.72);border-color:rgba(80,220,160,.42)}
+    .glass-card--mehendi::after{background:linear-gradient(90deg,transparent,rgba(100,230,175,.68),transparent)}
+    .glass-card--haldi{background:rgba(162, 133, 58, 0.74);border-color:rgba(255,210,70,.50)}
+    .glass-card--haldi::after{background:linear-gradient(90deg,transparent,rgba(255,215,90,.72),transparent)}
+    .gc-num{font-size:9px;letter-spacing:4px;text-transform:uppercase;opacity:.78;font-family:Inter,sans-serif;display:block;margin-bottom:16px}
+    .gc-icon{font-size:26px;display:block;margin-bottom:14px}
+    .gc-name{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,50px);font-weight:700;line-height:.95;margin-bottom:12px}
+    .gc-tagline{font-family:Inter,system-ui,sans-serif;font-style:normal;font-size:13px;opacity:.82;line-height:1.65;margin-bottom:24px}
+    .gc-rule{width:32px;height:1px;margin-bottom:22px;opacity:.4}
+    .glass-card--nani .gc-rule{background:rgba(120,185,255,1)}
+    .glass-card--mehendi .gc-rule{background:rgba(100,230,175,1)}
+    .glass-card--haldi .gc-rule{background:rgba(255,215,90,1)}
+    .gc-details{border-radius:14px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08);overflow:hidden}
+    .gc-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.07);gap:12px}
+    .gc-row:last-child{border-bottom:none}
+    .gc-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.65;font-family:Inter,sans-serif;flex-shrink:0}
+    .gc-val{font-family:DM Sans,system-ui,sans-serif;font-size:13.5px;font-weight:350;text-align:right;line-height:1.3;flex:1}
+    .gc-val.small{font-size:12px;font-style:normal;opacity:.85}
+    .gc-badge{display:inline-block;margin-top:18px;padding:6px 14px;border-radius:20px;font-size:11px;letter-spacing:1px;font-family:Inter,sans-serif}
+    .glass-card--nani .gc-badge{background:rgba(100,170,255,.14);color:rgba(190,225,255,.85);border:1px solid rgba(100,170,255,.22)}
+    .glass-card--mehendi .gc-badge{background:rgba(80,220,160,.12);color:rgba(160,245,205,.85);border:1px solid rgba(80,220,160,.2)}
+    .glass-card--haldi .gc-badge{background:rgba(255,210,70,.14);color:rgba(255,235,160,.85);border:1px solid rgba(255,210,70,.22)}
+    @media(max-width:860px){.glass-cards-grid{grid-template-columns:1fr;max-width:460px}}
+    @media(max-width:420px){.glass-cards-grid{max-width:100%;width:100%}.glass-card{width:100%;box-sizing:border-box}}
+
+    /* ── Grand event detail block (Wedding & Reception) ── */
+    .grand-event-details {
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+    }
+    .grand-event-details .gc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      gap: 12px;
+    }
+    .grand-event-details .gc-row:last-child { border-bottom: none; }
+    .grand-event-details .gc-lbl {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+      font-family: Inter, sans-serif;
+      flex-shrink: 0;
+    }
+    .grand-event-details .gc-val {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13.5px;
+      font-weight: 400;
+      text-align: right;
+      line-height: 1.3;
+      flex: 1;
+      color: #ffffff;
+    }
+    .grand-event-details .gc-val.small {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.90);
+    }
+
+    /* Reception illustration – positioned left (content sits right) */
+    .reception-scene-img {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      max-height: 92%;
+      width: auto;
+      max-width: 48%;
+      object-fit: contain;
+      object-position: left bottom;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      pointer-events: none;
+      z-index: 2;
+      filter: drop-shadow(0 20px 50px rgba(142, 83, 80, 0.22));
+      opacity: 0.85;
+    }
+    @media (max-width: 720px) {
+      .reception-scene-img {
+        max-height: 100%;
+        max-width: 70%;
+        opacity: 0.65;
+        left: 80%;
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+
+
+  <main class="shell">
+    <section id="home" class="hero section-anchor" data-section="home">
+      <div class="frame"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow" data-reveal>SAVE THE DATE!</div>
+          <h1 class="display delay-1" data-reveal>Gowtham<br>&amp; Apurba</h1>
+          <p class="hero-sub" data-reveal>
+            We are starting a new chapter of our lives, welcoming you to join us in our celebrations. 
+          </p>
+          <div class="hero-actions" data-reveal>
+            <a class="hero-link" href="#events">See the events</a>
+            <a class="hero-link" href="#story">Read our story</a>
+          </div>
+          <img src="Ticket.png" alt="Wedding invitation ticket" data-reveal style="width:100%;max-width:480px;height:auto;display:block;margin-top:28px;margin-left:auto;margin-right:auto;filter:drop-shadow(0 20px 48px rgba(70,18,37,0.22)) drop-shadow(0 6px 14px rgba(70,18,37,0.14));">
+          <div class="scroll-note" data-reveal>
+            <span>Scroll for the story</span>
+            <span></span>
+          </div>
+        </div>
+
+        
+
+          
+      </div>
+    </section>
+
+    <section id="story" class="chapter section-anchor" data-section="story">
+      <div class="container">
+        <header class="chapter-head">
+          
+          <h2 class="display" data-reveal>Two cities. One direction.</h2>
+          <p class="lede" data-reveal>
+            Separate beginnings, a shared becoming.
+          </p>
+        </header>
+
+        <div class="split-grid">
+          <article class="story-card" data-reveal>
+            <img src="Delhi.png" aria-hidden="true" style="position:absolute;right:0;top:0;height:100%;width:60%;object-fit:cover;object-position:left center;opacity:0.18;pointer-events:none;z-index:0;border-radius:0 30px 30px 0;">
+            <div class="card-topline">Delhi</div>
+            <h3>Apurba &amp; the pulse of the city.</h3>
+            <p>
+              Growing up amidst the vibrant pulse of Delhi, where history lingers in every corner and modern life moves with restless energy. In a city of contrasts, where the old and new exist, Apurba grew up absorbing its diversity, resilience, and color—gently shaping a creative spirit and an eye that finds meaning in the details and culture.
+            </p>
+          </article>
+
+          <article class="story-card" data-reveal style="align-items: flex-end; text-align: right;">
+            <img src="Guntur.png" aria-hidden="true" style="position:absolute;left:0;top:0;height:100%;width:60%;object-fit:cover;object-position:right center;opacity:0.18;pointer-events:none;z-index:0;border-radius:30px 0 0 30px;">
+            <div class="card-topline">Guntur</div>
+            <h3>Gowtham &amp; the quiet of home.</h3>
+            <p style="margin-left: auto;">
+              In the quiet rhythms of Guntur, Gowtham's early years unfolded with calm and clarity. Surrounded by simplicity and a nurturing pace of life, he grew up rooted in discipline and curiosity—where learning was not rushed, but deeply lived, shaping a steady mind and a thoughtful spirit.
+            </p>
+          </article>
+        </div>
+
+        <div class="meeting-grid" style="margin-top: 26px; grid-template-columns: 1fr;">
+          <article class="meeting-panel" data-reveal>
+            <h3>Our worlds collided</h3>
+            <p>
+              At the AIIMS Biodesign Program, our paths crossed shaped by curiosity and intent. Our values aligned naturally, and it felt right to build something lasting together. A shared inclination for slow, intentional thinking, a love for fun problem-solving and an eye for the beauty in details brought us closer.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="luffy" data-reveal>
+          <div class="luffy-band">
+            <div class="luffy-img-wrap" aria-hidden="true">
+              <img src="Luffy fun.png" alt="Luffy the cat" class="luffy-cat-img">
+            </div>
+            <div class="luffy-copy" style="text-align: right; align-items: flex-end; display: flex; flex-direction: column;">
+              <h3 class="luffy-copy-h3" data-reveal>Luffy, the furry centre of gravity.</h3>
+              <p>
+                A tiny, 2 month old Luffy walked into our lives and quietly made everything brighter. In her playful ease and simple joys, she reminded us to slow down, be present, and find happiness in the little things.
+              </p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    <section id ="events" class="event-section theme-maroon event-grand" data-section="events">
+      <header class="chapter-head">
+          
+          <h2 class="display" data-reveal>Events</h2>
+        </header>
+      <div class="container">
+        <div class="event-scene event-scene-grand" data-reveal>
+          <div class="scene-card scene-card-grand">
+            <div class="scene-gradient"></div>
+            <img src="without%20texture.png" class="wedding-scene-img" alt="" aria-hidden="true">
+            <div class="scene-inner-content">
+              <div class="event-number">01</div>
+              <div class="event-kicker">The main evening</div>
+              <h3 class="event-title">Wedding</h3>
+              <p class="lede">
+                Together with our families, we warmly invite you to celebrate our wedding and the beginning of this new chapter in our lives. 
+              </p>
+              <div class="grand-event-details" style="margin-top:24px">
+                <div class="gc-row">
+                  <span class="gc-lbl">Date</span>
+                  <span class="gc-val">24<sup style="font-size:9px">th</sup> June 2026</span>
+                </div>
+                <div class="gc-row">
+                  <span class="gc-lbl">Starts</span>
+                  <span class="gc-val">6:30 PM</span>
+                </div>
+                <div class="gc-row">
+                  <span class="gc-lbl">Dinner</span>
+                  <span class="gc-val">9 PM</span>
+                </div>
+                <div class="gc-row" style="align-items:flex-start">
+                  <span class="gc-lbl">Venue</span>
+                  <span class="gc-val small">Crowne Plaza Hotel,<br>Mayur Vihar Ph-1 extn, New Delhi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="event-section theme-chilli event-grand">
+      <div class="container">
+        <div class="event-scene event-scene-grand" data-reveal>
+          <div class="scene-card scene-card-grand content-right">
+            <div class="scene-gradient"></div>
+            <img src="couple edited.png" class="reception-scene-img" alt="" aria-hidden="true">
+
+            <div class="scene-inner-content">
+              <div class="event-number">02</div>
+              <div class="event-kicker">Southbound ending</div>
+              <h3 class="event-title">Reception</h3>
+              <p class="lede">
+                Join us for an evening of celebration, laughter, and togetherness.
+              </p>
+              <div class="grand-event-details" style="margin-top:24px">
+                <div class="gc-row">
+                  <span class="gc-lbl">Date</span>
+                  <span class="gc-val">2<sup style="font-size:9px">nd</sup> July 2026</span>
+                </div>
+                <div class="gc-row">
+                  <span class="gc-lbl">Time</span>
+                  <span class="gc-val">6:30 PM</span>
+                </div>
+                <div class="gc-row" style="align-items:flex-start">
+                  <span class="gc-lbl">Venue</span>
+                  <span class="gc-val small">Guntur, details to follow.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="map" class="map-section section-anchor" data-section="map">
+      <div class="container">
+        <header class="chapter-head">
+          <h2 class="display" data-reveal>How to reach.</h2>
+        </header>
+
+        <div class="map-layout">
+          <article class="map-card" data-reveal>
+            <div class="route-map" aria-hidden="true">
+              <img src="map.png" alt="Route map" style="width:50%;height:auto;display:block;margin:8px auto;border-radius:12px;">
+            </div>
+            <div class="map-copy">
+              <h3>Local area map</h3>
+              <p>
+                Place the drop location as Crowne plaza if you are taking a cab/driving or the terminating metro station as Mayur vihar phase-1 extension in DMRC monbile app while booking your ticket. 
+              </p>
+            </div>
+          </article>
+
+          <aside class="venue-stack" data-reveal>
+            
+
+          
+
+            <div class="venue-item">
+              <div class="venue-head">
+                <span class="venue-dot" style="background: var(--ink);"></span>
+                <span>Crowne Plaza</span>
+              </div>
+              <p>Wedding ceremony at 6:30 PM, followed by dinner at 9:00 PM.</p>
+              <div class="map-links">
+                <a href="https://maps.google.com/?q=Crowne+Plaza+Mayur+Vihar+New+Delhi" target="_blank" rel="noopener noreferrer">Open maps</a>
+              </div>
+            </div>
+
+            <div class="venue-item">
+              <div class="venue-head">
+                <span class="venue-dot" style="background: var(--chilli);"></span>
+                <span>Guntur reception</span>
+              </div>
+              <p>2 July 2026, 6:30 PM. Venue details to follow.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="rsvp" class="closing section-anchor" data-section="rsvp">
+      <div class="container">
+        <div class="closing-card" data-reveal>
+          <div class="closing-grid">
+            <div>
+              <h2>Come celebrate with us.</h2>
+
+              <div class="countdown" id="countdown" aria-label="Countdown to wedding">
+                <div class="count-item"><strong id="days">00</strong><span>Days</span></div>
+                <div class="count-item"><strong id="hours">00</strong><span>Hours</span></div>
+                <div class="count-item"><strong id="mins">00</strong><span>Minutes</span></div>
+                <div class="count-item"><strong id="secs">00</strong><span>Seconds</span></div>
+              </div>
+
+              <div class="closing-actions">
+                <a class="rsvp-wa-btn" href="https://wa.me/918826358908?text=Hi!%20I%20received%20the%20wedding%20invite%20for%20Gowtham%20and%20Apurba.%20I%20would%20love%20to%20attend." target="_blank" rel="noopener noreferrer">RSVP on WhatsApp</a>
+                <a href="#home">Back to top</a>
+              </div>
+            </div>
+
+            <div class="closing-quote">
+              <h3>RSVP</h3>
+              
+              <p style="margin-top: 16px;">+91 8826358908<br>24 June 2026, 6:30 PM | New Delhi</p>
+              
+              <p style="margin-top: 16px;">+91 7767953524<br>2 July 2026, 6:30 PM | Guntur</p>
+              
+              <p style="margin-top: 16px; color: rgba(255,250,242,0.56);">
+                See you soon!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    const navLinks = [...document.querySelectorAll('.quick-nav a')];
+    const sections = [...document.querySelectorAll('.section-anchor')];
+
+    let activeSections = new Set();
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activeSections.add(entry.target);
+        } else {
+          activeSections.delete(entry.target);
+        }
+      });
+      // Pick the section closest to the top of the viewport
+      let best = null;
+      let bestTop = Infinity;
+      activeSections.forEach(sec => {
+        const top = Math.abs(sec.getBoundingClientRect().top);
+        if (top < bestTop) { bestTop = top; best = sec; }
+      });
+      if (best) {
+        const name = best.dataset.section;
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.dataset.nav === name);
+        });
+      }
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    const progressBar = document.getElementById('progressBar');
+    const parallaxEls = [...document.querySelectorAll('[data-depth]')];
+    let ticking = false;
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }
+
+    function updateParallax() {
+      const vh = window.innerHeight;
+      parallaxEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const offset = (center - vh / 2) / vh;
+        const depth = parseFloat(el.dataset.depth || '0.12');
+        const axis = el.dataset.axis || 'y';
+        const x = axis === 'x' ? offset * -120 * depth : 0;
+        const y = axis === 'y' ? offset * -180 * depth : offset * -40 * depth;
+        el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      });
+      ticking = false;
+    }
+
+    function onScroll() {
+      updateProgress();
+      if (!ticking && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    updateProgress();
+    updateParallax();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    const targetDate = new Date('2026-06-24T18:30:00+05:30').getTime();
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minsEl = document.getElementById('mins');
+    const secsEl = document.getElementById('secs');
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = Math.max(0, targetDate - now);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minsEl.textContent = String(mins).padStart(2, '0');
+      secsEl.textContent = String(secs).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
